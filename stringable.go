@@ -16,12 +16,28 @@ func (s Stringable) Float64() (float64, error) {
 	return n.Float64(), nil
 }
 
+func (s Stringable) Float64Default(def float64) float64 {
+	n, err := s.ToNumber()
+	if err != nil {
+		return def
+	}
+	return n.Float64()
+}
+
 func (s Stringable) Int64() (int64, error) {
 	n, err := s.ToNumber()
 	if err != nil {
 		return int64(0), err
 	}
 	return n.Int64(), nil
+}
+
+func (s Stringable) Int64Default(def int64) int64 {
+	n, err := s.ToNumber()
+	if err != nil {
+		return def
+	}
+	return n.Int64()
 }
 
 func (s Stringable) ToNumber() (Number, error) {
