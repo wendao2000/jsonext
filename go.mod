@@ -1,3 +1,3 @@
 module github.com/wendao2000/jsonext
 
-go 1.22
+go 1.20
